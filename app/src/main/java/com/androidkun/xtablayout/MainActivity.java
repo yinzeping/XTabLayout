@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(adatper);
         viewPager.setOffscreenPageLimit(4);
         //将TabLayout和ViewPager关联起来。
-        final XTabLayout tabLayout = (XTabLayout) findViewById(R.id.xTablayout);
+        final XTopTabLayout tabLayout = (XTopTabLayout) findViewById(R.id.xTablayout);
         tabLayout.setupWithViewPager(viewPager);
         //给TabLayout设置适配器
         tabLayout.setupWithViewPager(viewPager);
