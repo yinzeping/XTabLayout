@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.WindowManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,12 +25,12 @@ public class MainActivity extends AppCompatActivity {
         List<String> titles = new ArrayList<>();
         titles.add("一本");
         titles.add("二本");
+//        titles.add("三A");
+//        titles.add("三B");
+        titles.add("一本本");
+//        titles.add("二本B");
         titles.add("三A");
-        titles.add("三B");
-        titles.add("一本");
-        titles.add("二本");
-        titles.add("三A");
-        titles.add("三B");
+//        titles.add("三B");
         for (int i = 0; i < titles.size(); i++) {
             if(i%2==0){
                 fragments.add(new Fragment2());
@@ -42,10 +43,14 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(adatper);
         viewPager.setOffscreenPageLimit(4);
         //将TabLayout和ViewPager关联起来。
-        final XTopTabLayout tabLayout = (XTopTabLayout) findViewById(R.id.xTablayout);
+        final XTabLayout tabLayout = (XTabLayout) findViewById(R.id.xTablayout);
+//        final XTopTabLayout tabLayout = (XTopTabLayout) findViewById(R.id.xTablayout);
         tabLayout.setupWithViewPager(viewPager);
         //给TabLayout设置适配器
         tabLayout.setupWithViewPager(viewPager);
 
+//        float width = getResources().getDisplayMetrics().widthPixels;
+//        tabLayout.setRequestedTabMinWidth((int) (width/(titles.size())));
+//        tabLayout.setRequestedTabMaxWidth((int) (width/(titles.size())));
     }
 }

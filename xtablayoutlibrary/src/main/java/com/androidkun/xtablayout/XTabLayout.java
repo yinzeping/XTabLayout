@@ -38,7 +38,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
-import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
@@ -80,7 +79,7 @@ public class XTabLayout extends HorizontalScrollView {
     private static final int FIXED_WRAP_GUTTER_MIN = 16; //dps
     //当Tab被选中时文本长度大于等于Tab的宽度时，
     // Tab会另外增加SELECT_TAB_SELECTED_ADD_WIDTH的长度
-    private static final int SELECTED_TAB_ADD_WIDTH = 20; //dps
+    private static final int SELECTED_TAB_ADD_WIDTH = 10; //dps
     private static final int MOTION_NON_ADJACENT_OFFSET = 24;
 
     private static final int ANIMATION_DURATION = 300;
@@ -177,6 +176,8 @@ public class XTabLayout extends HorizontalScrollView {
 
     private final XTabLayout.SlidingTabStrip mTabStrip;
 
+    private int mTabSelectedAddWidth;
+
     private int mTabPaddingStart;
     private int mTabPaddingTop;
     private int mTabPaddingEnd;
@@ -253,6 +254,8 @@ public class XTabLayout extends HorizontalScrollView {
         mTabStrip.setmSelectedIndicatorWidth(
                 a.getDimensionPixelSize(R.styleable.XTabLayout_xTabIndicatorWidth, 0));
         mTabStrip.setSelectedIndicatorColor(a.getColor(R.styleable.XTabLayout_xTabIndicatorColor, 0));
+
+        mTabSelectedAddWidth = a.getDimensionPixelSize(R.styleable.XTabLayout_xTabSelectedAddWidth, SELECTED_TAB_ADD_WIDTH);
 
         mTabPaddingStart = mTabPaddingTop = mTabPaddingEnd = mTabPaddingBottom = a
                 .getDimensionPixelSize(R.styleable.XTabLayout_xTabPadding, 0);
@@ -880,8 +883,8 @@ public class XTabLayout extends HorizontalScrollView {
                         Rect rect = new Rect();
                         paint.getTextBounds(text, 0, text.length(), rect);
 
-                        if (tabWidth - rect.width() < dpToPx(SELECTED_TAB_ADD_WIDTH)) {
-                            tabWidth = rect.width() + dpToPx(SELECTED_TAB_ADD_WIDTH);
+                        if (tabWidth - rect.width() < dpToPx(mTabSelectedAddWidth)) {
+                            tabWidth = rect.width() + dpToPx(mTabSelectedAddWidth);
                             ViewGroup.LayoutParams layoutParams = tabView.getLayoutParams();
                             layoutParams.width = tabWidth;
                             tabView.setLayoutParams(layoutParams);

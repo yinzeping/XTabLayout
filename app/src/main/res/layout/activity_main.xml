@@ -9,7 +9,7 @@
     tools:context="com.androidkun.xtablayout.MainActivity"
     android:background="#ff0">
 
-    <com.androidkun.xtablayout.XTopTabLayout
+    <com.androidkun.xtablayout.XTabLayout
         android:id="@+id/xTablayout"
         android:layout_width="match_parent"
         android:layout_height="130px"
@@ -21,11 +21,30 @@
         app:xTabSelectedTextColor="#f00"
         app:xTabTextColor="#000"
         app:xTabTextSize="15sp"
-        app:xTabDisplayNum="4"
         app:xTabSelectedTextSize="20sp"
-        app:xTabDividerWidth="2dp"
+        app:xTabSelectedAddWidth="10dp"
+        app:xTabPadding="0dp"
+        app:xTabMinWidth="10dp"
+        app:xTabDividerWidth="0dp"
         app:xTabDividerHeight="15dp"
         app:xTabDividerColor="#000"/>
+    <!--<com.androidkun.xtablayout.XTopTabLayout-->
+        <!--android:id="@+id/xTablayout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="130px"-->
+        <!--app:xTabBackgroundColor="#ff0"-->
+        <!--app:xTabDividerWidthWidthText="true"-->
+        <!--app:xTabMode="fixed"-->
+        <!--app:xTabIndicatorColor="#0f0"-->
+        <!--app:xTabIndicatorHeight="2dp"-->
+        <!--app:xTabSelectedTextColor="#f00"-->
+        <!--app:xTabTextColor="#000"-->
+        <!--app:xTabTextSize="15sp"-->
+        <!--app:xTabDisplayNum="4"-->
+        <!--app:xTabSelectedTextSize="20sp"-->
+        <!--app:xTabDividerWidth="2dp"-->
+        <!--app:xTabDividerHeight="15dp"-->
+        <!--app:xTabDividerColor="#000"/>-->
 
 
     <android.support.v4.view.ViewPager
